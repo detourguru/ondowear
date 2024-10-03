@@ -38,7 +38,7 @@ export default function Main() {
           height={80}
         />
       </div>
-      <SubmitButton href="setting">설정 변경하기</SubmitButton>
+      <SubmitButton href="setting" text="설정 변경하기" />
     </section>
   );
 }
