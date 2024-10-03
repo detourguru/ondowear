@@ -11,7 +11,7 @@ export default function Setting() {
           <ArrowButton href={PATH.LOCATION}>현재 위치</ArrowButton>
         </div>
 
-        <Button>저장하기</Button>
+        <Button href={PATH.MAIN}>돌아가기</Button>
       </section>
     </>
   );
