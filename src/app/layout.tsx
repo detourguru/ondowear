@@ -12,7 +12,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={"w-screen flex justify-center bg-black"}>
+        <div className="max-w-[375px] w-full h-dvh overflow-y-auto overflow-x-hidden hidden-scrollbar bg-primary-50">
+          {children}
+        </div>
+      </body>
     </html>
   );
 }
