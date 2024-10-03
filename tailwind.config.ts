@@ -12,10 +12,8 @@ const config: Config = {
         primary: {
           50: "var(--primary-50)",
         },
-        gray: {
-          50: "var(--gray-50)",
-        },
         blue: {
+          50: "var(--blue-50)",
           500: "var(--blue-500)",
         },
         background: "var(--background)",

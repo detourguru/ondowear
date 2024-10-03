@@ -1,5 +1,6 @@
 export const PATH = {
-  MAIN: "/",
+  MAIN: "/main",
   SETTING: "/setting",
-  LOCATION: "/location",
+  LOCATION: "/setting/location",
+  STYLE: "/setting/style",
 };
