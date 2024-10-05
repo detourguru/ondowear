@@ -1,6 +1,6 @@
-import ArrowButton from "@/componants/common/button/ArrowButton";
-import Button from "@/componants/common/button/Button";
-import Header from "@/componants/common/header/Header";
+import ArrowButton from "@/componants/button/ArrowButton";
+import Button from "@/componants/button/Button";
+import Header from "@/componants/header/Header";
 import { PATH } from "@/constants/path";
 
 export default function Setting() {

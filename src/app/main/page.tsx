@@ -1,4 +1,4 @@
-import Button from "@/componants/common/button/Button";
+import Button from "@/componants/button/Button";
 import { PATH } from "@/constants/path";
 
 import Image from "next/image";

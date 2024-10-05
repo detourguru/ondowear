@@ -1,6 +1,6 @@
 "use client";
 
-import Button, { type ButtonProps } from "@/componants/common/button/Button";
+import Button, { type ButtonProps } from "@/componants/button/Button";
 
 const ArrowButton = ({ children, href }: ButtonProps) => {
   return (

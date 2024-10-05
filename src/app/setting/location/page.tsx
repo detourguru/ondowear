@@ -1,5 +1,5 @@
-import Button from "@/componants/common/button/Button";
-import Header from "@/componants/common/header/Header";
+import Button from "@/componants/button/Button";
+import Header from "@/componants/header/Header";
 
 export default function Location() {
   return (

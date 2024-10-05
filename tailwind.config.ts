@@ -23,6 +23,7 @@ const config: Config = {
       },
       fontSize: {
         "bold-34": ["34px", { lineHeight: "140%", fontWeight: 700 }],
+        "bold-12": ["12px", { lineHeight: "140%", fontWeight: 700 }],
         "semibold-16": ["16px", { lineHeight: "140%", fontWeight: 500 }],
         "regular-12": ["12px", { lineHeight: "140%", fontWeight: 400 }],
       },
