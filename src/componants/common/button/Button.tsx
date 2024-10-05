@@ -33,7 +33,7 @@ export interface ButtonProps
 const ButtonRightArrow = () => {
   return (
     <Image
-      className="absolute justify-self-end -mt-1 mr-5"
+      className="justify-self-end -my-5 mx-5"
       priority
       src="/svg/ic-right-arrow.svg"
       alt="right-arrow"
