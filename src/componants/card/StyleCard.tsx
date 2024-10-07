@@ -17,11 +17,11 @@ const StyleCard = ({
     <button
       onClick={onClick}
       className={`relative w-[130px] h-[130px] rounded-xl border ${
-        isSelected ? "border-blue-500" : ""
+        isSelected ? "bg-blue-500" : ""
       }`}
     >
       <Image width={130} height={130} alt={style} src={imagePath} />
-      <span className="absolute bottom-0 inset-x-0 p-2 text-bold-12">
+      <span className="absolute bottom-0 inset-x-0 p-2 text-bold-12 bg-white opacity-80 rounded-lg">
         {style}
       </span>
     </button>
