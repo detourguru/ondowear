@@ -1,5 +1,3 @@
-"use client";
-
 import Button from "@/componants/button/Button";
 import StyleCard from "@/componants/card/StyleCard";
 import Header from "@/componants/header/Header";
