@@ -5,7 +5,7 @@ interface SearchBarProps {
 
 const SearchBar = ({ onClick, address }: SearchBarProps) => {
   return (
-    <form className="flex p-3 gap-3 w-4/5 rounded-lg border" onClick={onClick}>
+    <form className="flex p-3 gap-3 w-5/6 rounded-lg border" onClick={onClick}>
       <input
         readOnly
         id="search"

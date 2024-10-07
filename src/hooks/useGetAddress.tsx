@@ -1,11 +1,7 @@
-"use client";
-
 import { useState } from "react";
 import { Address, useDaumPostcodePopup } from "react-daum-postcode";
-import SearchBar from "@/componants/searchBar/SearchBar";
-import Map from "@/componants/map/Map";
 
-const SearchLoactionPopup = () => {
+export const useGetAddress = () => {
   const [address, setAddress] = useState("");
   const open = useDaumPostcodePopup();
 
@@ -30,12 +26,5 @@ const SearchLoactionPopup = () => {
     open({ onComplete: handleComplete });
   };
 
-  return (
-    <div className="grid grid-cols-1 gap-5 w-full place-items-center">
-      <SearchBar onClick={handleClick} address={address} />
-      <Map address={address} />
-    </div>
-  );
+  return { handleClick, address };
 };
-
-export default SearchLoactionPopup;
