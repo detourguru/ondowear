@@ -1,12 +1,9 @@
 "use client";
 
 import { STYLES_DATA } from "@/constants/style";
-import { createContext, useState } from "react";
+import { useState } from "react";
 import StyleCard from "@/componants/card/StyleCard";
-import { StyleContextType } from "@/app/type/context";
 import { getLocalStorage } from "@/app/utils/storage";
-
-export const StyleContext = createContext<StyleContextType>({ style: "일상" });
 
 const StyleCardList = () => {
   const styles = Object.entries(STYLES_DATA);
@@ -21,7 +18,7 @@ const StyleCardList = () => {
   };
 
   return (
-    <StyleContext.Provider value={{ style: select }}>
+    <>
       <div className="grid grid-cols-2 gap-5 place-items-center">
         {styles.map((style) => (
           <StyleCard
@@ -33,7 +30,7 @@ const StyleCardList = () => {
           />
         ))}
       </div>
-    </StyleContext.Provider>
+    </>
   );
 };
 
