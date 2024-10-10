@@ -1,7 +1,7 @@
 import { getLocalStorage, setLocalStorage } from "@/app/utils/storage";
 import { useState } from "react";
 
-export const useSelectStyle = () => {
+export const useHandleStyle = () => {
   let currentStyle = getLocalStorage("style");
   currentStyle = currentStyle ? JSON.parse(currentStyle).style : "일상";
   const [select, setSelect] = useState(currentStyle);

@@ -2,13 +2,12 @@
 
 import Button from "@/componants/button/Button";
 import StyleCard from "@/componants/card/StyleCard";
-import StyleCardList from "@/componants/card/StyleCardList";
 import Header from "@/componants/header/Header";
 import { STYLES_DATA } from "@/constants/style";
-import { useSelectStyle } from "@/hooks/useSelectStyle";
+import { useHandleStyle } from "@/hooks/useHandleStyle";
 
 export default function Style() {
-  const { handleSubmit, handleClick, select } = useSelectStyle();
+  const { handleSubmit, handleClick, select } = useHandleStyle();
   const styles = Object.entries(STYLES_DATA);
 
   return (
