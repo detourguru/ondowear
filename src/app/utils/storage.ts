@@ -1,7 +1,13 @@
-export const setLocalStorage = <T>(key: string, value: T) => {
-  return localStorage.setItem(key, JSON.stringify(value));
-};
+class LocalStorage {
+  constructor() {}
 
-export const getLocalStorage = (key: string) => {
-  return localStorage.getItem(key);
-};
+  static setLocalStorage = <T>(key: string, value: T) => {
+    return localStorage.setItem(key, JSON.stringify(value));
+  };
+
+  static getLocalStorage = (key: string) => {
+    return localStorage.getItem(key);
+  };
+}
+
+export default LocalStorage;

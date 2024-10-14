@@ -1,4 +1,4 @@
-import { getLocalStorage, setLocalStorage } from "@/app/utils/storage";
+import LocalStorage from "@/app/utils/storage";
 import {
   INITIAL_COORDINATE_DATA,
   INITIAL_LOCATION,
@@ -8,7 +8,7 @@ import { Address, useDaumPostcodePopup } from "react-daum-postcode";
 import { Loader } from "react-kakao-maps-sdk";
 
 export const useHandleAddress = () => {
-  let currentLocation = getLocalStorage("location");
+  let currentLocation = LocalStorage.getLocalStorage("location");
   currentLocation = currentLocation
     ? JSON.parse(currentLocation).location
     : INITIAL_LOCATION;
@@ -19,7 +19,7 @@ export const useHandleAddress = () => {
   const open = useDaumPostcodePopup();
 
   const handleSubmit = () => {
-    setLocalStorage("location", {
+    LocalStorage.setLocalStorage("location", {
       location: address,
       lat: coordinate.lat,
       lng: coordinate.lng,

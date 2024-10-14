@@ -1,8 +1,8 @@
-import { getLocalStorage, setLocalStorage } from "@/app/utils/storage";
+import LocalStorage from "@/app/utils/storage";
 import { useState } from "react";
 
 export const useHandleStyle = () => {
-  let currentStyle = getLocalStorage("style");
+  let currentStyle = LocalStorage.getLocalStorage("style");
   currentStyle = currentStyle ? JSON.parse(currentStyle).style : "일상";
   const [select, setSelect] = useState(currentStyle);
 
@@ -11,7 +11,7 @@ export const useHandleStyle = () => {
   };
 
   const handleSubmit = () => {
-    setLocalStorage("style", { style: select });
+    LocalStorage.setLocalStorage("style", { style: select });
     alert("저장 되었습니다.");
     location.href = "/setting";
   };
