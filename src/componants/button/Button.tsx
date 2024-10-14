@@ -26,6 +26,7 @@ const handleButtonClick = (href: string | undefined) => {
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
+  onClick?: () => void;
   href?: string;
   rightArrow?: boolean;
 }
@@ -43,13 +44,15 @@ const ButtonRightArrow = () => {
   );
 };
 
-const Button = ({ children, href, variant }: ButtonProps) => {
+const Button = ({ children, href, onClick, variant }: ButtonProps) => {
   return (
     <button
       className={`${buttonVariants({
         variant,
       })}`}
-      onClick={() => handleButtonClick(href)}
+      onClick={() =>
+        onClick === undefined ? handleButtonClick(href) : onClick()
+      }
     >
       {children}
     </button>

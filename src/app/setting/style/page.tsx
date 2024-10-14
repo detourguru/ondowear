@@ -4,15 +4,11 @@ import Button from "@/componants/button/Button";
 import StyleCard from "@/componants/card/StyleCard";
 import Header from "@/componants/header/Header";
 import { STYLES_DATA } from "@/constants/style";
-import { useState } from "react";
+import { useHandleStyle } from "@/hooks/useHandleStyle";
 
 export default function Style() {
+  const { handleSubmit, handleClick, select } = useHandleStyle();
   const styles = Object.entries(STYLES_DATA);
-
-  const [select, setSelect] = useState("일상");
-  const handleClick = (key: string) => {
-    setSelect(key);
-  };
 
   return (
     <>
@@ -29,7 +25,7 @@ export default function Style() {
             />
           ))}
         </div>
-        <Button>저장하기</Button>
+        <Button onClick={handleSubmit}>저장하기</Button>
       </section>
     </>
   );
