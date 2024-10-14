@@ -4,7 +4,7 @@ const MainWithOutSetting = () => {
   return (
     <>
       <div className="grid grid-cols-1 gap-2">
-        <span className="text-bold-34">
+        <span className="text-bold-30">
           오늘의 날씨에 맞춰
           <br />
           ondowear

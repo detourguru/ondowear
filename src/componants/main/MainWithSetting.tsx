@@ -42,7 +42,7 @@ const MainWithSetting = () => {
   return (
     <>
       {!isLoading && (
-        <div className="w-4/5 grid grid-cols-1 gap-5">
+        <div className="w-4/5 h-full grid grid-cols-1 gap-5">
           <TextWithHighlight
             type="weather"
             highlight={weather.main}

@@ -22,7 +22,7 @@ const config: Config = {
         foreground: "var(--foreground)",
       },
       fontSize: {
-        "bold-34": ["34px", { lineHeight: "120%", fontWeight: 700 }],
+        "bold-30": ["30px", { lineHeight: "120%", fontWeight: 700 }],
         "bold-12": ["12px", { lineHeight: "120%", fontWeight: 700 }],
         "semibold-16": ["16px", { lineHeight: "120%", fontWeight: 500 }],
         "regular-12": ["12px", { lineHeight: "120%", fontWeight: 400 }],

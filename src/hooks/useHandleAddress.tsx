@@ -3,7 +3,7 @@ import {
   INITIAL_COORDINATE_DATA,
   INITIAL_LOCATION,
 } from "@/constants/location";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Address, useDaumPostcodePopup } from "react-daum-postcode";
 import { Loader } from "react-kakao-maps-sdk";
 
@@ -14,7 +14,14 @@ export const useHandleAddress = () => {
     : INITIAL_LOCATION;
 
   const [address, setAddress] = useState(currentLocation ?? "");
+  const [isSetted, setIsSetted] = useState(false);
   const [coordinate, setCoordinate] = useState(INITIAL_COORDINATE_DATA);
+
+  useEffect(() => {
+    if (LocalStorage.getLocalStorage("location") !== undefined) {
+      setIsSetted(true);
+    }
+  }, [isSetted]);
 
   const open = useDaumPostcodePopup();
 
@@ -74,5 +81,12 @@ export const useHandleAddress = () => {
       });
   };
 
-  return { handleClick, address, handleSubmit, handleCoordinate, coordinate };
+  return {
+    isSetted,
+    handleClick,
+    address,
+    handleSubmit,
+    handleCoordinate,
+    coordinate,
+  };
 };

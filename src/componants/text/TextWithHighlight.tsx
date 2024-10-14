@@ -20,7 +20,7 @@ const TextWithHighlight = ({
   return (
     <div className="flex w-full justify-between">
       <div
-        className={`w-2/3 ${
+        className={`w-2/3 self-center ${
           rightText ? "order-2 text-right" : "order-1 text-left"
         }`}
       >
@@ -30,7 +30,7 @@ const TextWithHighlight = ({
             <br />
           </>
         )}
-        <span className="text-bold-34 whitespace-pre-wrap">
+        <span className="text-bold-30 whitespace-pre-wrap">
           {media.text[0]}
           <br />
           <span className="text-blue-500">{highlight}</span>
