@@ -18,7 +18,10 @@ export const useHandleAddress = () => {
   const [coordinate, setCoordinate] = useState(INITIAL_COORDINATE_DATA);
 
   useEffect(() => {
-    if (LocalStorage.getLocalStorage("location") !== undefined) {
+    if (
+      LocalStorage.getLocalStorage("location") &&
+      LocalStorage.getLocalStorage("style")
+    ) {
       setIsSetted(true);
     }
   }, [isSetted]);

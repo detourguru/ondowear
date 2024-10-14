@@ -1,6 +1,5 @@
-import { INITIAL_COORDINATE_DATA } from "@/constants/location";
-import { useEffect, useState } from "react";
-import { Map as KakaoMap, Loader, MapMarker } from "react-kakao-maps-sdk";
+import { useEffect } from "react";
+import { Map as KakaoMap, MapMarker } from "react-kakao-maps-sdk";
 
 interface MapProps {
   address: string;
@@ -11,7 +10,7 @@ interface MapProps {
 const Map = ({ address, handleCoordinate, coordinate }: MapProps) => {
   useEffect(() => {
     handleCoordinate();
-  }, [address]);
+  }, [address, handleCoordinate]);
 
   return (
     <div className="w-full">

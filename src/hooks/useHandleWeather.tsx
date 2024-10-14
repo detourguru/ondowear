@@ -1,11 +1,17 @@
 import { fetchWeather } from "@/app/api/location/route";
 import { OpenWeatherAPIType } from "@/app/type/weather";
 import LocalStorage from "@/app/utils/storage";
+import {
+  INITIAL_COORDINATE_DATA,
+  INITIAL_LOCATION,
+} from "@/constants/location";
 import { useEffect, useState } from "react";
 
 export const useHandleWeather = () => {
-  const location = JSON.parse(LocalStorage.getLocalStorage("location") ?? "");
-
+  const location = JSON.parse(
+    LocalStorage.getLocalStorage("location") ??
+      `{"location": ${INITIAL_LOCATION}, "lat": ${INITIAL_COORDINATE_DATA.lat}}, "lng": ${INITIAL_COORDINATE_DATA.lng}}`
+  );
   const [code, setCode] = useState(0);
   const [tempMinMax, setTempMinMax] = useState({
     temp_max: 0,

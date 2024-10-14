@@ -15,8 +15,9 @@ const MainWithSetting = () => {
     useHandleWeather();
 
   const weather = WEATHER_DATA.filter((data) => data.code === code)[0];
-  const style = JSON.parse(LocalStorage.getLocalStorage("style") ?? "").style;
-
+  const style = JSON.parse(
+    LocalStorage.getLocalStorage("style") ?? `{"style":"일상"}`
+  ).style;
   const outfit = OUTFIT_DATA.find((data) => data.style === style)?.data.find(
     (item) => temp >= item.temp[0] && temp < item.temp[1]
   );
