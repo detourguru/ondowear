@@ -1,6 +1,5 @@
 "use client";
 
-import LocalStorage from "@/app/utils/storage";
 import TextWithHighlight from "@/componants/text/TextWithHighlight";
 import {
   TEMP_RANGE,
@@ -8,20 +7,19 @@ import {
   BELONGINGS_DATA,
   WEATHER_DATA,
 } from "@/constants/weather";
+import { useHandleStyle } from "@/hooks/useHandleStyle";
 import { useHandleWeather } from "@/hooks/useHandleWeather";
 
 const MainWithSetting = () => {
   const { isLoading, locationText, tempDiffer, temp, code, isRain } =
     useHandleWeather();
 
+  const { select } = useHandleStyle();
+
   const weather = WEATHER_DATA.filter((data) => data.code === code)[0];
-  const style = JSON.parse(
-    LocalStorage.getLocalStorage("style") ?? `{"style":"일상"}`
-  ).style;
-  const outfit = OUTFIT_DATA.find((data) => data.style === style)?.data.find(
+  const outfit = OUTFIT_DATA.find((data) => data.style === select)?.data.find(
     (item) => temp >= item.temp[0] && temp < item.temp[1]
   );
-
   const tempRange = TEMP_RANGE.filter(
     (data) =>
       data.type ===

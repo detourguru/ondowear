@@ -8,12 +8,7 @@ import { Address, useDaumPostcodePopup } from "react-daum-postcode";
 import { Loader } from "react-kakao-maps-sdk";
 
 export const useHandleAddress = () => {
-  let currentLocation = LocalStorage.getLocalStorage("location");
-  currentLocation = currentLocation
-    ? JSON.parse(currentLocation).location
-    : INITIAL_LOCATION;
-
-  const [address, setAddress] = useState(currentLocation ?? "");
+  const [address, setAddress] = useState("");
   const [isSetted, setIsSetted] = useState(false);
   const [coordinate, setCoordinate] = useState(INITIAL_COORDINATE_DATA);
 
@@ -24,6 +19,11 @@ export const useHandleAddress = () => {
     ) {
       setIsSetted(true);
     }
+
+    const currentLocation =
+      LocalStorage.getLocalStorage("location") ??
+      `{"location": "${INITIAL_LOCATION}"}`;
+    setAddress(JSON.parse(currentLocation).location);
   }, [isSetted]);
 
   const open = useDaumPostcodePopup();

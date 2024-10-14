@@ -1,10 +1,14 @@
 import LocalStorage from "@/app/utils/storage";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const useHandleStyle = () => {
-  let currentStyle = LocalStorage.getLocalStorage("style");
-  currentStyle = currentStyle ? JSON.parse(currentStyle).style : "일상";
-  const [select, setSelect] = useState(currentStyle);
+  const [select, setSelect] = useState("");
+
+  useEffect(() => {
+    const currentStyle =
+      LocalStorage.getLocalStorage("style") ?? `{"style": "일상"}`;
+    setSelect(JSON.parse(currentStyle).style);
+  }, []);
 
   const handleClick = (style: string) => {
     setSelect(style);

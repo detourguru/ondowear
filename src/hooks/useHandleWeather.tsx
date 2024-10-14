@@ -1,4 +1,4 @@
-import { fetchWeather } from "@/app/api/location/route";
+import { GET } from "@/app/api/location/route";
 import { OpenWeatherAPIType } from "@/app/type/weather";
 import LocalStorage from "@/app/utils/storage";
 import {
@@ -21,58 +21,6 @@ export const useHandleWeather = () => {
   const [isRain, setIsRain] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    // daily
-    fetchWeather({
-      lat: location.lat,
-      lon: location.lng,
-      mode: "forecast",
-    }).then((data) => {
-      const targetDate = new Date();
-      targetDate.setDate(targetDate.getDate() + 1);
-
-      const result = data.list.filter(
-        (item: OpenWeatherAPIType) =>
-          new Date(item.dt_txt) <=
-          new Date(targetDate.toISOString().split("T")[0] + " 00:00:00")
-      );
-
-      setIsRain(
-        data.list.some((obj: OpenWeatherAPIType) => obj.hasOwnProperty("rain"))
-      );
-
-      const { maxTemp, minTemp } = result.reduce(
-        (
-          acc: { maxTemp: number; minTemp: number },
-          item: OpenWeatherAPIType
-        ) => {
-          const { temp_max, temp_min } = item.main;
-          return {
-            maxTemp: Math.max(acc.maxTemp, temp_max),
-            minTemp: Math.min(acc.minTemp, temp_min),
-          };
-        },
-        { maxTemp: -Infinity, minTemp: Infinity }
-      );
-
-      setTempMinMax({
-        temp_max: maxTemp,
-        temp_min: minTemp,
-      });
-    });
-
-    // current
-    fetchWeather({
-      lat: location.lat,
-      lon: location.lng,
-      mode: "weather",
-    }).then((data) => {
-      setTemp(data.main.temp);
-      setCode(data.weather[0].id);
-      setIsLoading(false);
-    });
-  }, []);
-
   const locationText = `${location.location.split(" ")[0]}, ${
     location.location.split(" ")[1]
   }`;
@@ -80,6 +28,63 @@ export const useHandleWeather = () => {
   const tempDiffer = parseInt(
     (tempMinMax.temp_max - tempMinMax.temp_min).toFixed(0)
   );
+
+  useEffect(() => {
+    // daily
+    const getDailyData = () => {
+      GET(location.lat, location.lng, "forecast").then((data) => {
+        data.json().then((data) => {
+          const targetDate = new Date();
+          targetDate.setDate(targetDate.getDate() + 1);
+
+          const result = data.data.list.filter(
+            (item: OpenWeatherAPIType) =>
+              new Date(item.dt_txt) <=
+              new Date(targetDate.toISOString().split("T")[0] + " 00:00:00")
+          );
+
+          setIsRain(
+            data.data.list.some((obj: OpenWeatherAPIType) =>
+              obj.hasOwnProperty("rain")
+            )
+          );
+
+          const { maxTemp, minTemp } = result.reduce(
+            (
+              acc: { maxTemp: number; minTemp: number },
+              item: OpenWeatherAPIType
+            ) => {
+              const { temp_max, temp_min } = item.main;
+              return {
+                maxTemp: Math.max(acc.maxTemp, temp_max),
+                minTemp: Math.min(acc.minTemp, temp_min),
+              };
+            },
+            { maxTemp: -Infinity, minTemp: Infinity }
+          );
+
+          setTempMinMax({
+            temp_max: maxTemp,
+            temp_min: minTemp,
+          });
+        });
+      });
+    };
+
+    // current
+    const getCurrentData = () => {
+      GET(location.lat, location.lng, "weather").then((data) => {
+        data.json().then((data) => {
+          setTemp(data.data.main.temp);
+          setCode(data.data.weather[0].id);
+          setIsLoading(false);
+        });
+      });
+    };
+
+    getDailyData();
+    getCurrentData();
+  }, []);
 
   return {
     isLoading,

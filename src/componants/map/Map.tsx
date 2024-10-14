@@ -10,7 +10,7 @@ interface MapProps {
 const Map = ({ address, handleCoordinate, coordinate }: MapProps) => {
   useEffect(() => {
     handleCoordinate();
-  }, [address, handleCoordinate]);
+  }, [address]);
 
   return (
     <div className="w-full">
