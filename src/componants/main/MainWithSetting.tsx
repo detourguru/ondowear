@@ -27,11 +27,11 @@ const MainWithSetting = () => {
   );
 
   const getBelongings = () => {
-    if (isRain && tempDiffer > 5) {
+    if (isRain && tempDiffer >= 5) {
       return BELONGINGS_DATA.find((item) => item.type === "both");
     } else if (isRain) {
       return BELONGINGS_DATA.find((item) => item.type === "rain");
-    } else if (tempDiffer > 5) {
+    } else if (tempDiffer >= 5) {
       return BELONGINGS_DATA.find((item) => item.type === "cold");
     } else {
       return undefined;
