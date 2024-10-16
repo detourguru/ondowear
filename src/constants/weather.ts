@@ -309,7 +309,7 @@ export const WEATHER_DATA = [
   {
     code: 802,
     src: "/svg/weather/ic-little-cloud.svg",
-    main: "흩어진 구름",
+    main: "약간 흐림",
     description: "흩어진 구름: 25-50%",
   },
   {
@@ -330,7 +330,7 @@ export const WEATHER_MEDIA_TEXT = [
   { type: "weather", text: ["현재 날씨는", "입니다"] },
   { type: "temperature", text: ["현재 기온은", "입니다"] },
   { type: "belongings", text: ["외출 시", "을\n가져가세요"] },
-  { type: "outfit", text: ["오늘은", "를\n추천해요"] },
+  { type: "outfit", text: ["오늘은", "를 추천해요"] },
 ];
 
 export const TEMP_RANGE = [
@@ -398,7 +398,7 @@ export const OUTFIT_DATA = [
       },
       {
         temp: [10, 20],
-        outfit: "얇은 자켓, 스커트",
+        outfit: "얇은 자켓, 면바지",
       },
       {
         temp: [20, 25],
@@ -410,11 +410,11 @@ export const OUTFIT_DATA = [
       },
       {
         temp: [30, 35],
-        outfit: "민소매 원피스, 샌들",
+        outfit: "민소매, 샌들",
       },
       {
         temp: [36, Infinity],
-        outfit: "가벼운 티셔츠, 짧은 치마",
+        outfit: "가벼운 티셔츠, 짧은 바지",
       },
     ],
   },
@@ -431,7 +431,7 @@ export const OUTFIT_DATA = [
       },
       {
         temp: [10, 20],
-        outfit: "스마트 캐주얼, 슬랙스",
+        outfit: "셔츠, 슬랙스",
       },
       {
         temp: [20, 25],

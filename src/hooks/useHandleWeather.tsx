@@ -5,6 +5,7 @@ import {
   INITIAL_COORDINATE_DATA,
   INITIAL_LOCATION,
 } from "@/constants/location";
+import { BELONGINGS_DATA } from "@/constants/weather";
 import { useEffect, useState } from "react";
 
 export const useHandleWeather = () => {
@@ -28,6 +29,18 @@ export const useHandleWeather = () => {
   const tempDiffer = parseInt(
     (tempMinMax.temp_max - tempMinMax.temp_min).toFixed(0)
   );
+
+  const getBelongings = () => {
+    if (isRain && tempDiffer >= 5) {
+      return BELONGINGS_DATA.find((item) => item.type === "both");
+    } else if (isRain) {
+      return BELONGINGS_DATA.find((item) => item.type === "rain");
+    } else if (tempDiffer >= 5) {
+      return BELONGINGS_DATA.find((item) => item.type === "cold");
+    } else {
+      return undefined;
+    }
+  };
 
   useEffect(() => {
     // daily
@@ -87,9 +100,9 @@ export const useHandleWeather = () => {
   return {
     isLoading,
     locationText,
-    tempDiffer,
     code,
     temp,
-    isRain,
+    getBelongings,
+    tempDiffer,
   };
 };
