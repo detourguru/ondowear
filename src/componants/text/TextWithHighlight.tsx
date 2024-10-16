@@ -7,6 +7,7 @@ interface TextWithHighlightProps {
   subText?: string;
   imgSrc: string;
   rightText?: boolean;
+  onClick?: () => void;
 }
 
 const TextWithHighlight = ({
@@ -15,6 +16,7 @@ const TextWithHighlight = ({
   subText,
   imgSrc,
   rightText,
+  onClick,
 }: TextWithHighlightProps) => {
   const media = WEATHER_MEDIA_TEXT.filter((media) => media.type === type)[0];
   return (
@@ -23,6 +25,7 @@ const TextWithHighlight = ({
         className={`w-2/3 self-center ${
           rightText ? "order-2 text-right" : "order-1 text-left"
         }`}
+        onClick={onClick}
       >
         {subText !== undefined && (
           <>
