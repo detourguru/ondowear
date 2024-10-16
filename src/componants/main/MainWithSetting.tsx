@@ -70,12 +70,12 @@ const MainWithSetting = () => {
     if (gemini.includes("Please")) {
       alert("새로고침 해주세요!");
     } else {
-      if (count > 3) {
+      setCount((pre) => pre + 1);
+      if (count > 2) {
         alert("더 추천할 의상이 없어요!");
         return;
       }
       setRecommendedOutfit(gemini.replace("\n", "").trimEnd());
-      setCount((pre) => pre + 1);
     }
   };
 
