@@ -44,9 +44,7 @@ export const useHandleWeather = () => {
           );
 
           setIsRain(
-            data.data.list.some((obj: OpenWeatherAPIType) =>
-              obj.hasOwnProperty("rain")
-            )
+            result.some((obj: OpenWeatherAPIType) => obj.hasOwnProperty("rain"))
           );
 
           const { maxTemp, minTemp } = result.reduce(
