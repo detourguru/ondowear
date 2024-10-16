@@ -71,8 +71,8 @@ const MainWithSetting = () => {
       alert("새로고침 해주세요!");
     } else {
       setCount((pre) => pre + 1);
-      if (count > 2) {
-        alert("더 추천할 의상이 없어요!");
+      if (count > 1) {
+        alert("추천 의상은 한번만 변경할 수 있어요!");
         return;
       }
       setRecommendedOutfit(gemini.replace("\n", "").trimEnd());
