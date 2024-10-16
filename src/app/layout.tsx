@@ -4,6 +4,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Ondowear",
+  description: "weather-based outfit recommendation service",
 };
 
 export default function RootLayout({
