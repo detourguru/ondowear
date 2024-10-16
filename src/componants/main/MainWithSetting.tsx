@@ -61,7 +61,7 @@ const MainWithSetting = () => {
             }
             imgSrc={tempRange[0].outfitSrc}
           />
-          {(tempDiffer > 0 || isRain) && (
+          {(tempDiffer >= 5 || isRain) && (
             <TextWithHighlight
               type="belongings"
               highlight={getBelongings()?.belonging ?? ""}

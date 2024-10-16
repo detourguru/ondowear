@@ -9,11 +9,13 @@ import { useHandleAddress } from "@/hooks/useHandleAddress";
 export default function Main() {
   const { isSetted } = useHandleAddress();
   return (
-    <section className="grid place-items-center h-full">
-      {isSetted ? <MainWithSetting /> : <MainWithOutSetting />}
+    <div className="grid place-items-center h-full">
+      <section className="w-full grid place-items-center m-4">
+        {isSetted ? <MainWithSetting /> : <MainWithOutSetting />}
+      </section>
       <Button variant="default" href={PATH.SETTING}>
         설정 변경하기
       </Button>
-    </section>
+    </div>
   );
 }
