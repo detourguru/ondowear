@@ -29,9 +29,7 @@ const MainWithSetting = () => {
       (item) => temp >= item.temp[0] && temp < item.temp[1]
     );
 
-    if (recommendedOutfit === "") {
-      setRecommendedOutfit(outfit?.outfit ?? "");
-    }
+    setRecommendedOutfit(outfit?.outfit ?? "");
 
     const promptGenerator = (
       select: string,
@@ -64,14 +62,14 @@ const MainWithSetting = () => {
       temp
     );
     setPrompt(fullPrompt);
-  }, [weather, temp, recommendedOutfit, select]);
+  }, [weather, temp, select]);
 
   const handleOnclick = () => {
     if (gemini.includes("Please")) {
       alert("새로고침 해주세요!");
     } else {
       setCount((pre) => pre + 1);
-      if (count > 1) {
+      if (count >= 1) {
         alert("추천 의상은 한번만 변경할 수 있어요!");
         return;
       }
