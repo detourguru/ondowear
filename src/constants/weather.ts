@@ -336,7 +336,7 @@ export const WEATHER_MEDIA_TEXT = [
 export const TEMP_RANGE = [
   {
     type: "cold",
-    src: "/svg/ic-frezzing.svg",
+    src: "/svg/ic-freezing.svg",
     outfitSrc: "/svg/ic-long-sleeve.svg",
   },
   {
