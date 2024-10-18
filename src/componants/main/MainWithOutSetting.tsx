@@ -13,7 +13,7 @@ const MainWithOutSetting = () => {
           언제 어디든 당신이 있는 곳에 맞는 옷차림으로 외출하세요!
         </span>
       </div>
-      <div className="grid grid-cols-3 gap-7">
+      <div className="grid grid-cols-3 gap-7 mt-20">
         <Image
           src="/svg/ic-freezing.svg"
           alt="freezing"
